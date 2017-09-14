@@ -1,0 +1,16 @@
+rps.ryyan.cc {
+	header / {
+		Access-Control-Allow-Origin *
+	}
+	proxy / localhost:5000 {
+		transparent
+	}
+	proxy /ws localhost:5001 {
+		transparent
+		websocket
+	}
+}
+
+ryyan.cc {
+	proxy / localhost:5555
+}
