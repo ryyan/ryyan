@@ -9,8 +9,10 @@ rps.ryyan.cc {
 		transparent
 		websocket
 	}
+	gzip
 }
 
 ryyan.cc {
 	proxy / localhost:5555
+	gzip
 }
