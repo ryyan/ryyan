@@ -12,6 +12,16 @@ rps.ryyan.cc {
 	gzip
 }
 
+4dbank.ryyan.cc {
+	header / {
+		Access-Control-Allow-Origin *
+	}
+	proxy / localhost:5002 {
+		transparent
+	}
+	gzip
+}
+
 ryyan.cc {
 	proxy / localhost:5555
 	gzip
