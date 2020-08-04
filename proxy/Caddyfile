@@ -1,28 +1,33 @@
 rps.ryyan.cc {
-	header / {
-		Access-Control-Allow-Origin *
-	}
-	proxy / localhost:5000 {
-		transparent
-	}
-	proxy /ws localhost:5001 {
-		transparent
-		websocket
-	}
-	gzip
+        header {
+                Access-Control-Allow-Origin *
+        }
+
+        reverse_proxy localhost:5000
+        reverse_proxy /ws/* localhost:5001
+        encode zstd gzip
 }
 
 4dbank.ryyan.cc {
-	header / {
-		Access-Control-Allow-Origin *
-	}
-	proxy / localhost:5002 {
-		transparent
-	}
-	gzip
+        header { 
+                Access-Control-Allow-Origin *
+        }
+
+        reverse_proxy localhost:5002
+        encode zstd gzip
+}
+
+catbin.ryyan.cc {
+        header {
+                Access-Control-Allow-Origin *
+        }
+
+        reverse_proxy localhost:5003
+        encode zstd gzip
+
 }
 
 ryyan.cc {
-	proxy / localhost:5555
-	gzip
+        reverse_proxy / localhost:5555
+        encode zstd gzip
 }
